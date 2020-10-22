@@ -1,0 +1,63 @@
+{
+  "id": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/bhaskerkecyrg/providers/Microsoft.DataProtection/backupVaults/bhaskerk-test-vault/backupPolicies/abcpolicy",
+  "name": "abcpolicy",
+  "type": "Microsoft.DataProtection/backupVaults/backupPolicies",
+  "properties": {
+    "policyRules": [
+      {
+        "backupParameters": {
+          "backupType": "Full",
+          "objectType": "AzureBackupParams"
+        },
+        "trigger": {
+          "schedule": {
+            "repeatingTimeIntervals": [
+              "R/2020-10-04T02:30:00Z/P1W"
+            ],
+            "timeZone": "UTC"
+          },
+          "taggingCriteria": [
+            {
+              "tagInfo": {
+                "tagName": "Default",
+                "id": "Default_"
+              },
+              "taggingPriority": 99,
+              "isDefault": true
+            }
+          ],
+          "objectType": "ScheduleBasedTriggerContext"
+        },
+        "dataStore": {
+          "objectType": "DataStoreInfoBase",
+          "dataStoreType": "VaultStore"
+        },
+        "name": "BackupWeekly",
+        "objectType": "AzureBackupRule"
+      },
+      {
+        "lifecycles": [
+          {
+            "deleteAfter": {
+              "objectType": "AbsoluteDeleteOption",
+              "duration": "P3M"
+            },
+            "targetDataStoreCopySettings": [],
+            "sourceDataStore": {
+              "objectType": "DataStoreInfoBase",
+              "dataStoreType": "VaultStore"
+            }
+          }
+        ],
+        "isDefault": true,
+        "name": "Default",
+        "objectType": "AzureRetentionRule"
+      }
+    ],
+    "name": "abcpolicy",
+    "datasourceTypes": [
+      "Microsoft.DBforPostgreSQL/servers/databases"
+    ],
+    "objectType": "BackupPolicy"
+  }
+}

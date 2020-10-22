@@ -1,0 +1,10 @@
+bin
+obj
+.vs
+exports
+tools
+custom/*.psm1
+test/*-TestResults.xml
+/*.psm1
+/*.snk
+/*.nuspec
